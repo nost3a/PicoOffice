@@ -18,7 +18,7 @@
     "@tiptap/extension-table-row": "^2.6.6",
     "@tiptap/extension-text-style": "^2.6.6",
     "@tiptap/starter-kit": "^2.6.6",
-    "@tiptap/vue-3": "^2.6.6",
+    "@tiptap/vue-3": "^3.31.4",
     "axios": "^1.7.2",
     "element-plus": "^2.7.8",
     "luckysheet": "^2.1.13",
