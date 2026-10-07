@@ -10,8 +10,10 @@ desktop-electron/app-dist/
 desktop-electron/dist/
 mobile-capacitor/www/
 mobile-capacitor/android/app/build/
-# backend/web 是前端构建后拷贝过来的大静态资源（embed 产物），不入库
-backend/web/
+# backend/web 是前端构建后拷贝过来的大静态资源（embed 产物），不入库；
+# 但保留占位 index.html，保证全新克隆也能直接 go build（go:embed 至少需匹配一个文件）
+backend/web/*
+!backend/web/index.html
 
 # ===== 编译产物 / 大二进制 =====
 backend/picooffice
