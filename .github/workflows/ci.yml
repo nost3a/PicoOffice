@@ -19,7 +19,7 @@ jobs:
       # go.mod 声明 go 1.26.0（golang.org/x/crypto v0.57.0 要求 Go >= 1.26）
       # 此处必须 >= 1.26，否则 GOTOOLCHAIN=auto 会尝试下载工具链并导致构建失败
       - name: Setup Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v7
         with:
           go-version: "1.26"
 
