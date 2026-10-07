@@ -1,8 +1,3 @@
-# 贡献指南 / Contributing
-
-很高兴你愿意给 PicoOffice 提贡献。这里说清楚怎么把本地环境跑起来、代码怎么写、PR 怎么提。开始之前建议先读一下 [行为准则](CODE_OF_CONDUCT.md) 和 [安全政策](SECURITY.md)。
-
-Glad you're willing to contribute to PicoOffice. This explains how to set up the local environment, how to write code, and how to submit a PR. Before you start, we recommend reading the [Code of Conduct](CODE_OF_CONDUCT.md) and [Security Policy](SECURITY.md).
 
 ## 能贡献什么 / What You Can Contribute
 
