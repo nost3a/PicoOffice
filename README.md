@@ -203,8 +203,6 @@ picooffice/
 ├── LICENSE
 ├── README.md                 # 项目首页 / project landing
 ├── CONTRIBUTING.md           # 贡献指南 / contributing guide
-├── CODE_OF_CONDUCT.md        # 行为准则 / code of conduct
-├── SECURITY.md               # 安全政策 / security policy
 ├── docs/                     # 文档目录 / documentation
 │   ├── DETAILS.md           # 系统详情 / system details
 │   ├── DEPLOY.md            # 部署手册 / deployment guide
@@ -290,10 +288,6 @@ The repo root ships with `docker-compose.yml`:
 docker compose up -d
 ```
 
-数据挂载在 `pico_data` 卷里，容器删了数据也还在。公网部署记得前面套一层 HTTPS 反向代理，并改掉默认 JWT 密钥（详见 [SECURITY.md](SECURITY.md)）。
-
-Data is mounted in the `pico_data` volume, so it survives even if the container is removed. For public deployment, put an HTTPS reverse proxy in front and change the default JWT secret (see [SECURITY.md](SECURITY.md)).
-
 ### 常用环境变量 / Common Environment Variables
 
 | 变量 / Variable | 说明 / Description | 默认 / Default |
@@ -319,7 +313,6 @@ Full configuration options are in [DEPLOY.md](docs/DEPLOY.md).
 | [USAGE.md](docs/USAGE.md) | 用户使用说明 / User guide |
 | [CHANGELOG.md](docs/CHANGELOG.md) | 版本变更记录 / Changelog |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | 参与开发指引 / Contributing guide |
-| [SECURITY.md](SECURITY.md) | 安全政策与漏洞上报 / Security policy & vulnerability reporting |
 
 ---
 
@@ -342,12 +335,6 @@ A: By default SQLite (`picooffice.db`) + the local `storage/` directory. Everyth
 
 A：能。GORM 支持，改下数据库连接配置即可，详见 [DEPLOY.md](docs/DEPLOY.md)。
 A: Yes. GORM supports it; change the database connection config. See [DEPLOY.md](docs/DEPLOY.md).
-
-**Q：公网部署要注意什么？**
-**Q: What should I watch out for in a public deployment?**
-
-A：务必套 HTTPS、改 `PICO_JWT_SECRET`、把数据库和备份目录权限收紧。细节看 [SECURITY.md](SECURITY.md)。
-A: Always put it behind HTTPS, change `PICO_JWT_SECRET`, and tighten permissions on the database and backup directories. Details in [SECURITY.md](SECURITY.md).
 
 **Q：断网还能编辑吗？**
 **Q: Can I still edit while offline?**
@@ -393,10 +380,6 @@ Vote, nudge, or claim items in the Issues.
 想一起搞？看 [CONTRIBUTING.md](CONTRIBUTING.md) 把环境跑起来，照着提 PR 就行。
 
 Want to join in? Read [CONTRIBUTING.md](CONTRIBUTING.md) to get the environment running, then open a PR.
-
-社区行为约定见 [行为准则](CODE_OF_CONDUCT.md)。发现安全问题**别**发公开 Issue，走 [SECURITY.md](SECURITY.md) 的私密渠道。
-
-Community behavior expectations are in the [Code of Conduct](CODE_OF_CONDUCT.md). For security issues, **do not** open a public Issue — use the private channel in [SECURITY.md](SECURITY.md).
 
 ## 开源协议 / License
 
