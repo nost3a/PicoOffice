@@ -1,0 +1,10 @@
+{
+  "appId": "com.picooffice.app",
+  "appName": "PicoOffice",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https",
+    "cleartext": true,
+    "url": "http://10.0.2.2:8080"
+  }
+}

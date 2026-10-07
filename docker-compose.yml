@@ -1,0 +1,24 @@
+services:
+  picooffice:
+    build: .
+    container_name: picooffice
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data/storage:/data/storage
+      - ./data/db:/data/db
+    environment:
+      - PICO_PORT=8080
+      - PICO_DB=/data/db/picooffice.db
+      - PICO_STORAGE=/data/storage
+      # export concurrency, default 2
+      - PICO_EXPORT_WORKERS=2
+      # ---- optional S3 (main defaults to local; storage.Init(kind=s3) is ready) ----
+      # - PICO_STORAGE_KIND=s3
+      # - S3_ENDPOINT=oss-cn-xxx.aliyuncs.com
+      # - S3_ACCESS_KEY=ak
+      # - S3_SECRET_KEY=sk
+      # - S3_BUCKET=picooffice
+      # - S3_REGION=oss-cn-xxx
+      # - S3_SSL=true
+    restart: unless-stopped

@@ -1,0 +1,84 @@
+/* global compact styles: tighten default spacing for an enterprise-drive look*/
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  background: #f5f7fa;
+  color: #303133;
+  font-size: 14px;
+}
+
+/* tighten table row height*/
+.el-table {
+  --el-table-row-height: 40px;
+  font-size: 13px;
+}
+
+/* common utilities*/
+.flex { display: flex; }
+.flex-1 { flex: 1; }
+.mono { font-family: ui-monospace, Menlo, Consolas, monospace; }
+
+/* ============ print ============
+   print only the body; hide toolbar/sidebar/outline/find bar.*/
+@media print {
+  /* never print top bar / toolbar / sidebar / aux bar*/
+  .toolbar,
+  .fr-bar,
+  .outline-tree,
+  .master-bar,
+  .topbar,
+  .folder-tree,
+  .batch-bar,
+  .slide-nav,
+  .el-tabs,
+  .el-table__column-filter-trigger {
+    display: none !important;
+  }
+
+  /* white page background, no shadow*/
+  body,
+  .ed-page,
+  .sheet-page,
+  .slide-page {
+    background: #fff !important;
+  }
+  .editor-wrap,
+  .sheet-container,
+  .body {
+    background: #fff !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* doc page: print at normal size*/
+  .tiptap {
+    margin: 0 !important;
+    box-shadow: none !important;
+    min-height: auto !important;
+  }
+
+  /* tables: keep luckysheet canvas*/
+  #luckysheet-container {
+    overflow: visible !important;
+  }
+
+  /* slides: lay out all pages when printing, no slide-break*/
+  .slide-stage {
+    display: block !important;
+  }
+  .slide-card {
+    page-break-after: always;
+    box-shadow: none !important;
+  }
+
+  @page {
+    margin: 18mm;
+  }
+}
+

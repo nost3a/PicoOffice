@@ -1,0 +1,61 @@
+# ---- PicoOffice .gitignore ----
+# 目的：忽略构建产物、依赖、运行时数据与历史发布包，仅保留源码与脚本/文档/CI。
+
+# ===== 依赖目录 =====
+**/node_modules/
+
+# ===== 前端构建产物 =====
+frontend-web/dist/
+desktop-electron/app-dist/
+desktop-electron/dist/
+mobile-capacitor/www/
+mobile-capacitor/android/app/build/
+# backend/web 是前端构建后拷贝过来的大静态资源（embed 产物），不入库
+backend/web/
+
+# ===== 编译产物 / 大二进制 =====
+backend/picooffice
+backend/picobackup
+*.exe
+*.dll
+*.so
+*.dylib
+
+# ===== 发布包 =====
+release/
+*.deb
+*.apk
+*.zip
+*.tar.gz
+*.dmg
+
+# ===== 数据库与运行时数据 =====
+*.db
+*.db-wal
+*.db-shm
+backend/smoke*.db*
+storage/*
+!storage/.gitkeep
+tmp/
+backup_tmp/
+
+# ===== 日志 =====
+*.log
+
+# ===== 环境变量 / 密钥样例之外的真实配置 =====
+.env
+.env.*
+!.env.example
+
+# ===== 系统 / IDE =====
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ===== 冒烟 / 端到端测试运行产物 =====
+backend/smoke_e2e/
+backend/smoke_storage/
+backend/smoke_v2.*

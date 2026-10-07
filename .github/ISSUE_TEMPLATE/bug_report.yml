@@ -1,0 +1,71 @@
+name: Bug report
+description: 创建一个 bug 报告，帮助我们改进 PicoOffice
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！请尽量完整填写以下信息，方便我们复现和定位问题。
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 问题描述
+      description: 清晰地描述你遇到了什么问题
+      placeholder: 在什么场景下，出现了什么异常现象？
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: 复现步骤
+      description: 我们按怎样的步骤可以复现该问题？
+      placeholder: |
+        1. 打开 PicoOffice 首页
+        2. 进入「xxx」页面
+        3. 点击「xxx」按钮
+        4. 出现报错 / 异常
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+      description: 你认为正确的表现应该是什么？
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+      description: 实际发生了什么？如有报错请粘贴错误信息或截图
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: 操作系统
+      description: 你在哪个系统上遇到的问题？
+      options:
+        - Linux
+        - macOS
+        - Windows
+        - Docker
+        - 其他（请在下方补充说明）
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: PicoOffice 版本
+      description: 例如 v0.3.0（可在关于页或启动日志中查看）
+      placeholder: v0.3.0
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 相关日志 / 截图
+      description: 如有终端日志、浏览器控制台报错或截图，请粘贴到这里
+      render: shell

@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  go:
+    name: Backend (Go)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # go.mod 声明的版本可能高于 1.23，GOTOOLCHAIN=auto 会自动下载对应工具链
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.23"
+
+      - name: Configure GOPROXY
+        run: go env -w GOPROXY=https://goproxy.cn,https://proxy.golang.org,direct
+
+      - name: Build
+        run: go build ./...
+
+      - name: Vet
+        run: go vet ./...
+
+      - name: Test
+        run: go test ./...
+
+  web:
+    name: Frontend (Web)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend-web
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmmirror.com"
+
+      - name: Install dependencies
+        # 优先 npm ci（有 lockfile），失败则 npm install；镜像源失败时回退官方源
+        run: |
+          npm ci || npm install || (npm config set registry https://registry.npmjs.org/ && npm install)
+
+      - name: Build
+        run: npm run build
+
+  # 可选：Docker 镜像构建（默认注释，需要时取消注释即可）
+  # docker:
+  #   name: Docker build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #     - name: Build image
+  #       run: docker build .

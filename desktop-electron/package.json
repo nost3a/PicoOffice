@@ -1,0 +1,52 @@
+{
+  "name": "picooffice-desktop",
+  "version": "1.0.0",
+  "description": "PicoOffice desktop shell",
+  "main": "main.js",
+  "author": "PicoOffice <dev@picooffice.local>",
+  "license": "MIT",
+  "homepage": "https://picooffice.local",
+  "scripts": {
+    "start": "electron .",
+    "dist:deb": "electron-builder --linux deb",
+    "dist:win": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.picooffice.desktop",
+    "productName": "PicoOffice",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "app-dist/**/*",
+      "package.json"
+    ],
+    "linux": {
+      "target": [
+        {
+          "target": "deb",
+          "arch": ["x64"]
+        }
+      ],
+      "category": "Office"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "zip",
+          "arch": ["x64"]
+        }
+      ],
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
