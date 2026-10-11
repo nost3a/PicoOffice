@@ -8,9 +8,9 @@
 
 **PicoOffice** is an online office suite compact enough to run on a small VPS — even a Raspberry Pi. A single binary plus one database file gives you a private Office with collaboration, mail, calendar, and full-text search. No third-party SaaS, no cloud dependency; your data stays under your control.
 
-> 本项目仓库地址：`github.com/nost3a/PicoOffice`（下文命令中的仓库路径均已填好，可直接复制使用）。
+> 本项目仓库地址：`github.com/nost3a/PicoOffice`。
 >
-> Repository: `github.com/nost3a/PicoOffice` (repo paths in the commands below are already filled in and can be copied directly).
+> Repository: `github.com/nost3a/PicoOffice` .
 
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 [![build](https://img.shields.io/badge/build-passing-brightgreen.svg)](#)
