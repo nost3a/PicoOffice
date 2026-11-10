@@ -22,7 +22,7 @@
     "axios": "^1.7.2",
     "element-plus": "^2.7.8",
     "luckysheet": "^2.1.13",
-    "pinia": "^2.1.7",
+    "pinia": "^4.0.3",
     "vue": "^3.4.31",
     "vue-router": "^4.4.0"
   },
