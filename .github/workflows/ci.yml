@@ -14,13 +14,14 @@ jobs:
         working-directory: backend
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      # go.mod 声明的版本可能高于 1.23，GOTOOLCHAIN=auto 会自动下载对应工具链
+      # go.mod 声明 go 1.26.0（golang.org/x/crypto v0.57.0 要求 Go >= 1.26）
+      # 此处必须 >= 1.26，否则 GOTOOLCHAIN=auto 会尝试下载工具链并导致构建失败
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: "1.23"
+          go-version: "1.26"
 
       - name: Configure GOPROXY
         run: go env -w GOPROXY=https://goproxy.cn,https://proxy.golang.org,direct
@@ -61,7 +62,7 @@ jobs:
         working-directory: frontend-web
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -83,6 +84,6 @@ jobs:
   #   runs-on: ubuntu-latest
   #   steps:
   #     - name: Checkout
-  #       uses: actions/checkout@v4
+  #       uses: actions/checkout@v7
   #     - name: Build image
   #       run: docker build .
