@@ -27,7 +27,7 @@ jobs:
 
       # go:embed all:web 需要前端产物；先编译前端并拷入 backend/web，再编译 Go
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: "20"
           registry-url: "https://registry.npmmirror.com"
@@ -64,7 +64,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: "20"
           registry-url: "https://registry.npmmirror.com"
